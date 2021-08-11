@@ -63,7 +63,7 @@ nnoremap <leader>E <C-w>x<CR>
 nnoremap <leader>y "+y
 nnoremap <leader>p "+p
 vnoremap <leader>y "+y
-nnoremap <C-r> :!gcc % -o %<<CR>
+nnoremap <leader>r :!gcc % -o %<<CR>
 " Required for operations modifying multiple buffers like rename.
 set hidden
 lua require("niraj")
