@@ -20,6 +20,7 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'lambdalisue/suda.vim'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'tpope/vim-surround'
+Plug 'vim-autoformat/vim-autoformat'
 
 "Plug 'prabirshrestha/vim-lsp'
 "Plug 'mattn/vim-lsp-settings'
@@ -67,6 +68,7 @@ nnoremap <leader>y "+y
 nnoremap <leader>p "+p
 vnoremap <leader>y "+y
 nnoremap <leader>r :!gcc % -o %<<CR>
+nnoremap <leader>a :Autoformat<CR>
 " Required for operations modifying multiple buffers like rename.
 set hidden
 lua require("niraj")
