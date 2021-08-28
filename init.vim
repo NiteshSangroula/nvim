@@ -21,6 +21,7 @@ Plug 'lambdalisue/suda.vim'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'tpope/vim-surround'
 Plug 'vim-autoformat/vim-autoformat'
+Plug 'turbio/bracey.vim'
 
 "Plug 'prabirshrestha/vim-lsp'
 "Plug 'mattn/vim-lsp-settings'
