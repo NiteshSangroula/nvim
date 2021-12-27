@@ -32,7 +32,6 @@ Plug 'SirVer/ultisnips'
 "Plug 'nvim-lua/completion-nvim' 
 Plug 'honza/vim-snippets'
 Plug 'ryanoasis/vim-devicons'
-Plug 'tpope/vim-surround'
 call plug#end()
 
 let loaded_matchparen = 1
