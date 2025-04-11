@@ -1,27 +1,52 @@
-local lsp = require('lsp-zero')
+local lsp_zero = require('lsp-zero')
 
-lsp.preset('recommended')
+lsp_zero.extend_lspconfig()
 
-lsp.ensure_installed({
-	'sumneko_lua',
-	'clangd'
+-- Ensure required LSPs are installed
+require('mason').setup({})
+require('mason-lspconfig').setup({
+    ensure_installed = { "lua_ls", "omnisharp" },
+    automatic_installation = true,
 })
 
-lsp.set_preferences({
-    suggest_lsp_servers = false,
-    sign_icons = {
-        error = 'E',
-        warn = 'W',
-        hint = 'H',
-        info = 'I'
-    }
+-- Setup LSP configurations
+local lspconfig = require('lspconfig')
+
+lspconfig.lua_ls.setup({
+    settings = {
+        Lua = {
+            runtime = { version = "LuaJIT" },
+            diagnostics = { globals = { "vim" } },
+            workspace = {
+                library = vim.api.nvim_get_runtime_file("", true),
+                checkThirdParty = false,
+            },
+            telemetry = { enable = false },
+        },
+    },
 })
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    -- delay update diagnostics
+lspconfig.omnisharp.setup({
+    cmd = { "omnisharp" },
+    root_dir = lspconfig.util.root_pattern("*.sln", ".git"),
+    enable_editorconfig_support = true,
+    enable_roslyn_analyzers = true,
+    organize_imports_on_format = true,
+    enable_import_completion = true,
+})
+
+-- Customize LSP behavior
+lsp_zero.set_sign_icons({
+    error = "E",
+    warn = "W",
+    hint = "H",
+    info = "I",
+})
+
+-- Configure diagnostics
+vim.diagnostic.config({
+    virtual_text = true,
     update_in_insert = true,
-  }
-)
+})
 
-lsp.setup()
+lsp_zero.setup()
