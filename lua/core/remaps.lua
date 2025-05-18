@@ -10,3 +10,6 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", {silent = true})
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle File Explorer" })
 vim.keymap.set("n", "<leader>r", ":NvimTreeRefresh<CR>", { desc = "Refresh File Explorer" })
 vim.keymap.set("n", "<leader>n", ":NvimTreeFindFile<CR>", { desc = "Find File in Explorer" })
+
+-- undo tree
+vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>", { desc = "Toggle UndoTree" })
