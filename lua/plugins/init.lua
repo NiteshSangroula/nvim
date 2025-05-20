@@ -15,8 +15,19 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Plugins
 require("lazy").setup({
+  --[[
   { import = 'plugins.nvim-tree' },
   { import = 'plugins.undotree' },
   { import = 'plugins.lualine' },
   { import = 'plugins.telescope' },
+  { import = 'plugins.theme' },
+  { import = 'plugins.treesitter' },
+  { import = 'plugins.autopairs' },
+  { import = 'plugins.cmp'},
+  ]]--
+  { import = 'plugins.nitesh'},
+  { import = 'plugins.nitesh.lsp'},
 })
+
+
+

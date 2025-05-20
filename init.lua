@@ -4,3 +4,4 @@ require("core.remaps")
 
 -- Load Plugin Configurations (Lazy.nvim)
 require("plugins.init")
+
