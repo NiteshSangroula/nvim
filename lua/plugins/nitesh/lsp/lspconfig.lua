@@ -46,19 +46,38 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl="" })
     end
 
+    -- diagnostic
+
+    vim.diagnostic.config({
+      virtual_text = {
+        prefix = '●', -- or ">>", "●", "■", etc.
+        spacing = 2,
+      },
+      signs = true,
+      underline = true,
+      update_in_insert = false, -- diagnostics only after you leave insert mode
+      severity_sort = true,
+    })
+
+
+
+
     -- configure lsp
+    -- html
     lspconfig["html"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
 
     })
 
+    -- javascript
     lspconfig["ts_ls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
 
     })
 
+    -- css
     lspconfig["cssls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
@@ -86,6 +105,11 @@ return {
 
     })
 
+    -- java
+    lspconfig["jdtls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
 
+    })
   end,
 }

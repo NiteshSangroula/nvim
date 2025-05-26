@@ -25,6 +25,7 @@ return {
         "html",
         "cssls",
         "lua_ls",
+        "jdtls",
       },
       automatic_installation = true,
     })
