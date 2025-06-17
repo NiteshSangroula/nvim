@@ -14,6 +14,7 @@ vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>", { desc = "Toggle UndoTre
 
 -- telescope
 vim.keymap.set("n", "<leader>pf", ":Telescope find_files<CR>", { desc = "Find Files" })
+vim.keymap.set("n", "<leader>pb", ":Telescope buffers<CR>", { desc = "Current Buffers" })
 vim.keymap.set("n", "<C-p>", ":Telescope git_files<CR>", { desc = "Git Files" })
 vim.keymap.set("n", "<leader>ps", ":Telescope live_grep<CR>", { desc = "Live grep" })
 vim.keymap.set("n", "<leader>vh", ":Telescope help_tags<CR>", { desc = "Help Tags" })
