@@ -23,4 +23,6 @@ vim.opt.updatetime = 300
 vim.opt.signcolumn = "yes"
 
 
+vim.opt.swapfile = false
+
 
