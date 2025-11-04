@@ -1,8 +1,6 @@
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
-vim.g.leader = " "
-
 -- Basic navigation
 map("n", "<C-h>", "<C-w>h", opts)
 map("n", "<C-j>", "<C-w>j", opts)
