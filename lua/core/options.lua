@@ -1,0 +1,21 @@
+local opt = vim.opt
+
+opt.number = true
+opt.relativenumber = true
+opt.mouse = "a"
+opt.clipboard = "unnamedplus"
+opt.tabstop = 4
+opt.shiftwidth = 4
+opt.expandtab = true
+opt.smartindent = true
+opt.wrap = false
+opt.termguicolors = true
+opt.cursorline = true
+opt.signcolumn = "yes"
+opt.scrolloff = 8
+opt.splitbelow = true
+opt.splitright = true
+opt.swapfile = false
+opt.backup = false
+opt.undofile = true
+opt.undodir = vim.fn.stdpath("data") .. "/undo"
