@@ -81,9 +81,3 @@ vim.api.nvim_create_autocmd("LspAttach", {
         })
     end,
 })
-
--- --- Automatically start installed servers ---
-local mason_lsp = require("mason-lspconfig")
-for _, server_name in ipairs(mason_lsp.get_installed_servers()) do
-    vim.lsp.start({ name = server_name })
-end
