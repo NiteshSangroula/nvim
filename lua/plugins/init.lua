@@ -59,4 +59,16 @@ return {
             require("plugins.cmp") -- loads nvim-cmp config separately
         end,
     },
+
+    {
+        "elmcgill/springboot-nvim",
+        dependencies = {
+            "neovim/nvim-lspconfig",
+            "mfussenegger/nvim-jdtls"
+        },
+        config = function()
+            require("plugins.lsp.java")
+        end,
+    },
+
 }
