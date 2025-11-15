@@ -61,11 +61,7 @@ return {
     },
 
     {
-        "elmcgill/springboot-nvim",
-        dependencies = {
-            "neovim/nvim-lspconfig",
-            "mfussenegger/nvim-jdtls"
-        },
+        "mfussenegger/nvim-jdtls",
         config = function()
             require("plugins.lsp.java")
         end,
