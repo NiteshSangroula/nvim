@@ -62,9 +62,6 @@ return {
 
     {
         "mfussenegger/nvim-jdtls",
-        config = function()
-            require("plugins.lsp.java")
-        end,
     },
 
 }
