@@ -1,6 +1,8 @@
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
+map("i", "<C-c>", "<Esc>", opts)
+
 -- Basic navigation
 map("n", "<C-h>", "<C-w>h", opts)
 map("n", "<C-j>", "<C-w>j", opts)
