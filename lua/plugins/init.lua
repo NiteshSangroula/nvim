@@ -64,4 +64,8 @@ return {
         "mfussenegger/nvim-jdtls",
     },
 
+    {
+        "github/copilot.vim",
+    },
+
 }
