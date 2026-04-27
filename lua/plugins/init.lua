@@ -68,4 +68,12 @@ return {
         "github/copilot.vim",
     },
 
+    {
+        "CopilotC-Nvim/CopilotChat.nvim",
+        build = "make tiktoken", -- important
+        config = function()
+            require("plugins.copilotchat")
+        end,
+    },
+
 }
