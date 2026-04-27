@@ -66,6 +66,10 @@ return {
 
     {
         "github/copilot.vim",
+        cmd = "Copilot", -- lazy load
+        config = function()
+            vim.g.copilot_enabled = false
+        end,
     },
 
     {
