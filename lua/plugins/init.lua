@@ -17,10 +17,10 @@ return {
     },
 
     {
-        "nvim-tree/nvim-tree.lua",
+        "stevearc/oil.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
-            require("plugins.nvimtree")
+            require("plugins.oil")
         end,
     },
 
@@ -62,6 +62,14 @@ return {
 
     {
         "mfussenegger/nvim-jdtls",
+    },
+
+    {
+        "akinsho/bufferline.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        config = function()
+            require("plugins.bufferline")
+        end,
     },
 
 }
