@@ -23,8 +23,3 @@ require("bufferline").setup({
     },
 })
 
-
--- for bufferline
-vim.keymap.set("n", "<Tab>", ":bnext<CR>")
-vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>")
-vim.keymap.set("n", "<leader>bd", ":bdelete<CR>")
