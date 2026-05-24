@@ -5,9 +5,13 @@ return {
         "L3MON4D3/LuaSnip",
         event = "InsertEnter",
         dependencies = {
-            "rafamadriz/friendly-snippets",  -- snippet collection
+            "rafamadriz/friendly-snippets", -- snippet collection
         },
         config = function()
+            require("luasnip").setup({
+                -- disable default mappings so C-n/C-p are free
+                enable_autosnippets = false,
+            })
             require("luasnip.loaders.from_vscode").lazy_load()
         end,
     },
@@ -18,12 +22,12 @@ return {
         event = { "InsertEnter", "CmdlineEnter" },
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",     -- LSP completions
-            "hrsh7th/cmp-buffer",        -- buffer word completions
-            "hrsh7th/cmp-path",          -- filesystem path completions
-            "hrsh7th/cmp-cmdline",       -- cmdline completions
-            "saadparwaiz1/cmp_luasnip",  -- snippet completions
+            "hrsh7th/cmp-buffer",       -- buffer word completions
+            "hrsh7th/cmp-path",         -- filesystem path completions
+            "hrsh7th/cmp-cmdline",      -- cmdline completions
+            "saadparwaiz1/cmp_luasnip", -- snippet completions
             "L3MON4D3/LuaSnip",
-            "onsails/lspkind.nvim",      -- icons in completion menu
+            "onsails/lspkind.nvim",     -- icons in completion menu
         },
         config = function()
             local cmp     = require("cmp")
@@ -47,13 +51,13 @@ return {
                     ["<C-e>"]     = cmp.mapping.abort(),
 
                     -- Confirm with Enter
-                    ["<CR>"] = cmp.mapping.confirm({
+                    ["<CR>"]      = cmp.mapping.confirm({
                         behavior = cmp.ConfirmBehavior.Replace,
-                        select = false,  -- only confirm explicitly selected item
+                        select = false, -- only confirm explicitly selected item
                     }),
 
                     -- Tab navigates completion, also handles snippets
-                    ["<Tab>"] = cmp.mapping(function(fallback)
+                    ["<Tab>"]     = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_next_item()
                         elseif luasnip.expand_or_jumpable() then
@@ -63,7 +67,7 @@ return {
                         end
                     end, { "i", "s" }),
 
-                    ["<S-Tab>"] = cmp.mapping(function(fallback)
+                    ["<S-Tab>"]   = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_prev_item()
                         elseif luasnip.jumpable(-1) then
@@ -79,10 +83,10 @@ return {
                 -- ------------------------------------------------
                 sources = cmp.config.sources({
                     { name = "nvim_lsp", max_item_count = 10 },
-                    { name = "luasnip",  max_item_count = 5  },
+                    { name = "luasnip",  max_item_count = 5 },
                 }, {
-                    { name = "buffer",   max_item_count = 5  },
-                    { name = "path"                          },
+                    { name = "buffer", max_item_count = 5 },
+                    { name = "path" },
                 }),
 
                 -- ------------------------------------------------
@@ -90,7 +94,7 @@ return {
                 -- ------------------------------------------------
                 formatting = {
                     format = lspkind.cmp_format({
-                        mode = "symbol_text",   -- shows icon + type name
+                        mode = "symbol_text", -- shows icon + type name
                         maxwidth = 40,
                         ellipsis_char = "...",
                         before = function(entry, vim_item)
@@ -116,6 +120,9 @@ return {
                 -- Don't complete in comments
                 enabled = function()
                     local context = require("cmp.config.context")
+                    if vim.bo.buftype == "prompt" then
+                        return false
+                    end
                     if vim.api.nvim_get_mode().mode == "c" then
                         return true
                     end
@@ -135,7 +142,7 @@ return {
             cmp.setup.cmdline(":", {
                 mapping = cmp.mapping.preset.cmdline(),
                 sources = cmp.config.sources(
-                    { { name = "path"    } },
+                    { { name = "path" } },
                     { { name = "cmdline" } }
                 ),
             })
@@ -159,8 +166,8 @@ return {
             -- Formatters per filetype
             -- Add a new language: just add an entry here
             formatters_by_ft = {
-                lua        = { "stylua"   },
-                python     = { "black"    },
+                lua        = { "stylua" },
+                python     = { "black" },
                 javascript = { "prettier" },
                 typescript = { "prettier" },
                 html       = { "prettier" },
@@ -174,7 +181,7 @@ return {
             -- Format on save
             format_on_save = {
                 timeout_ms   = 1000,
-                lsp_fallback = true,   -- fall back to LSP if no formatter defined
+                lsp_fallback = true, -- fall back to LSP if no formatter defined
             },
         },
     },
@@ -189,7 +196,7 @@ return {
             -- Linters per filetype
             -- Add a new language: just add an entry here
             lint.linters_by_ft = {
-                python     = { "pylint"   },
+                python     = { "pylint" },
                 javascript = { "eslint_d" },
                 typescript = { "eslint_d" },
                 java       = { "checkstyle" },
