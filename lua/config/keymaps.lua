@@ -67,8 +67,3 @@ map("n", "<Esc>", "<cmd>nohlsearch<CR><Esc>", opts("Clear search highlight"))
 
 -- Don't jump on * (search word under cursor without moving)
 map("n", "*", "*N", opts("Search word, stay put"))
-
--- ============================================================
--- Java / Project specific
--- ============================================================
-map("n", "<leader>t", "<cmd>MvnTestCurrent<CR>", opts("Maven: test current"))
