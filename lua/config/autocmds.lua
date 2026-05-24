@@ -121,3 +121,18 @@ autocmd("TermOpen", {
   end,
   desc = "Clean terminal appearance",
 })
+
+-- Enable treesitter highlighting
+autocmd("FileType", {
+    group = group("treesitter_highlight"),
+    pattern = {
+        "lua", "java", "c", "cpp", "python",
+        "javascript", "typescript",
+        "html", "css", "json", "yaml",
+        "bash", "markdown",
+    },
+    callback = function()
+        vim.treesitter.start()
+    end,
+    desc = "Enable treesitter highlighting",
+})

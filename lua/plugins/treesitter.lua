@@ -1,20 +1,39 @@
-local status_ok, configs = pcall(require, "nvim-treesitter.configs")
-if not status_ok then
-    vim.notify("nvim-treesitter not installed yet", vim.log.levels.WARN)
-    return
-end
+return {
+    {
+        "nvim-treesitter/nvim-treesitter",
+        lazy = false,
+        build = ":TSUpdate",
+        config = function()
+            require("nvim-treesitter").setup({
+                install_dir = vim.fn.stdpath("data") .. "/site",
+            })
 
-configs.setup({
-    ensure_installed = {
-        "lua", "python", "javascript", "html", "css",
-        "c", "cpp", "java", "bash", "json", "markdown"
+            -- Install parsers for your languages
+            require("nvim-treesitter").install({
+                "lua", "java", "c", "cpp", "python",
+                "javascript", "typescript",
+                "html", "css", "json", "yaml",
+                "bash", "markdown", "markdown_inline",
+                "vim", "vimdoc",
+            })
+        end,
     },
-    highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
+
+    -- textobjects and context still work, they just need queries to exist
+    {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        lazy = false,
     },
-    indent = {
-        enable = true
+
+    {
+        "nvim-treesitter/nvim-treesitter-context",
+        lazy = false,
+        opts = {
+            max_lines = 3,
+            trim_scope = "outer",
+        },
+        keys = {
+            { "<leader>tc", "<cmd>TSContextToggle<CR>", desc = "Toggle treesitter context" },
+        },
     },
-    auto_install = true,
-})
+}
