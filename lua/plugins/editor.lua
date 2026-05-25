@@ -123,20 +123,4 @@ return {
       end,
     },
   },
-
-  -- Detect indent from file automatically
-  {
-    "tpope/vim-sleuth",
-    event = { "BufReadPost", "BufNewFile" },
-  },
-
-  -- Keymap hints popup
-  {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
-    opts = {
-      win = { border = "rounded" },
-      delay = 500,
-    },
-  },
 }
