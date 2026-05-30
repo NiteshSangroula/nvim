@@ -55,12 +55,12 @@ return {
     -- otherwise it loads on first use via keys
     keys = {
       {
-        "-",
+        "_",
         "<cmd>Oil<cr>",
         desc = "Open parent directory (Oil)",
       },
       {
-        "<leader>-",
+        "<leader>_",
         function() require("oil").open(vim.fn.expand("%:p:h")) end,
         desc = "Oil (current file dir)",
       },
