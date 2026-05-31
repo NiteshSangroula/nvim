@@ -4,15 +4,12 @@ return {
   {
     "L3MON4D3/LuaSnip",
     event = "InsertEnter",
-    dependencies = {
-      "rafamadriz/friendly-snippets",       -- snippet collection
-    },
+    dependencies = {},
     config = function()
       require("luasnip").setup({
         -- disable default mappings so C-n/C-p are free
         enable_autosnippets = false,
       })
-      require("luasnip.loaders.from_vscode").lazy_load()
     end,
   },
 
@@ -21,13 +18,13 @@ return {
     "hrsh7th/nvim-cmp",
     event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
-      "hrsh7th/cmp-nvim-lsp",           -- LSP completions
-      "hrsh7th/cmp-buffer",             -- buffer word completions
-      "hrsh7th/cmp-path",               -- filesystem path completions
-      "hrsh7th/cmp-cmdline",            -- cmdline completions
-      "saadparwaiz1/cmp_luasnip",       -- snippet completions
+      "hrsh7th/cmp-nvim-lsp",     -- LSP completions
+      "hrsh7th/cmp-buffer",       -- buffer word completions
+      "hrsh7th/cmp-path",         -- filesystem path completions
+      "hrsh7th/cmp-cmdline",      -- cmdline completions
+      "saadparwaiz1/cmp_luasnip", -- snippet completions
       "L3MON4D3/LuaSnip",
-      "onsails/lspkind.nvim",           -- icons in completion menu
+      "onsails/lspkind.nvim",     -- icons in completion menu
     },
     config = function()
       local cmp     = require("cmp")
@@ -53,7 +50,7 @@ return {
           -- Confirm with Enter
           ["<CR>"]      = cmp.mapping.confirm({
             behavior = cmp.ConfirmBehavior.Replace,
-            select = false,             -- only confirm explicitly selected item
+            select = false, -- only confirm explicitly selected item
           }),
 
           -- Tab navigates completion, also handles snippets
@@ -94,7 +91,7 @@ return {
         -- ------------------------------------------------
         formatting = {
           format = lspkind.cmp_format({
-            mode = "symbol_text",             -- shows icon + type name
+            mode = "symbol_text", -- shows icon + type name
             maxwidth = 40,
             ellipsis_char = "...",
             before = function(entry, vim_item)
@@ -181,7 +178,7 @@ return {
       -- Format on save
       format_on_save = {
         timeout_ms   = 1000,
-        lsp_fallback = true,         -- fall back to LSP if no formatter defined
+        lsp_fallback = true, -- fall back to LSP if no formatter defined
       },
     },
   },
