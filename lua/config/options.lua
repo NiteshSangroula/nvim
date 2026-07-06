@@ -6,7 +6,7 @@ opt.number = true
 opt.relativenumber = true
 
 -- === Mouse and Clipboard ===
-opt.mouse = ""
+--opt.mouse = ""
 opt.clipboard = "unnamedplus"
 
 -- === Indentation ===
