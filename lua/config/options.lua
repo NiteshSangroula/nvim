@@ -6,7 +6,7 @@ opt.number = true
 opt.relativenumber = true
 
 -- === Mouse and Clipboard ===
-opt.mouse = ""
+--opt.mouse = ""
 opt.clipboard = "unnamedplus"
 
 -- === Indentation ===
@@ -19,7 +19,7 @@ opt.smartindent = true
 -- === Appearance ===
 opt.wrap = false
 opt.termguicolors = true
-opt.cursorline = false
+opt.cursorline = true
 opt.signcolumn = "yes"
 opt.scrolloff = 8
 opt.sidescrolloff = 8   -- NEW: horizontal breathing room when wrap=false
@@ -39,7 +39,7 @@ opt.undodir = vim.fn.stdpath("data") .. "/undo"
 opt.autoread = true -- NEW reload file if changed outside nvim
 
 -- === Search ===
-opt.hlsearch = false
+opt.hlsearch = true
 opt.incsearch = true
 opt.ignorecase = true
 

@@ -51,16 +51,16 @@ return {
   {
     "stevearc/oil.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    -- lazy = false if you want it as your default explorer from the start
+    lazy = false, -- if you want it as your default explorer from the start
     -- otherwise it loads on first use via keys
     keys = {
       {
-        "-",
+        "_",
         "<cmd>Oil<cr>",
         desc = "Open parent directory (Oil)",
       },
       {
-        "<leader>-",
+        "<leader>_",
         function() require("oil").open(vim.fn.expand("%:p:h")) end,
         desc = "Oil (current file dir)",
       },

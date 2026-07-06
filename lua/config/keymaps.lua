@@ -5,7 +5,7 @@ local map = vim.keymap.set
 -- Helper: reusable default opts, but with desc support
 -- ============================================================
 local function opts(desc)
-    return { noremap = true, silent = true, desc = desc }
+  return { noremap = true, silent = true, desc = desc }
 end
 
 -- ============================================================
@@ -26,8 +26,10 @@ map("v", "J", ":m '>+1<CR>gv=gv", opts("Move line down"))
 map("v", "K", ":m '<-2<CR>gv=gv", opts("Move line up"))
 
 -- Keep cursor centered when jumping / searching
-map("n", "<C-d>", "<C-d>zz", opts("Scroll down centered"))
-map("n", "<C-u>", "<C-u>zz", opts("Scroll up centered"))
+map("n", "<C-d>", "<C-d>zz", opts("Scroll half page down centered"))
+map("n", "<C-u>", "<C-u>zz", opts("Scroll half page up centered"))
+map("n", "<C-f>", "<C-f>zz", opts("Scroll full page down centered"))
+map("n", "<C-b>", "<C-b>zz", opts("Scroll full page up centered"))
 map("n", "n", "nzzzv", opts("Next search result centered"))
 map("n", "N", "Nzzzv", opts("Prev search result centered"))
 

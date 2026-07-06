@@ -89,20 +89,14 @@ return {
       -- REPEATABLE MOTIONS
       --------------------------------------------------
 
-      vim.keymap.set({ "n", "x", "o" }, ";", repeat_move.repeat_last_move_next)
-      vim.keymap.set({ "n", "x", "o" }, ",", repeat_move.repeat_last_move_previous)
-    end,
-  },
+      vim.keymap.set({ "n", "x", "o" }, ";", repeat_move.repeat_last_move)
+      vim.keymap.set({ "n", "x", "o" }, ",", repeat_move.repeat_last_move_opposite)
 
-  {
-    "nvim-treesitter/nvim-treesitter-context",
-    lazy = false,
-    opts = {
-      max_lines = 3,
-      trim_scope = "outer",
-    },
-    keys = {
-      { "<leader>tc", "<cmd>TSContext toggle<CR>", desc = "Toggle treesitter context" },
-    },
+      -- 2. Force native f, F, t, T to register with the repeatable_move module
+      vim.keymap.set({ "n", "x", "o" }, "f", repeat_move.builtin_f_expr, { expr = true })
+      vim.keymap.set({ "n", "x", "o" }, "F", repeat_move.builtin_F_expr, { expr = true })
+      vim.keymap.set({ "n", "x", "o" }, "t", repeat_move.builtin_t_expr, { expr = true })
+      vim.keymap.set({ "n", "x", "o" }, "T", repeat_move.builtin_T_expr, { expr = true })
+    end,
   },
 }
